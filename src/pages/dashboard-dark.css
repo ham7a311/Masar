@@ -1,0 +1,733 @@
+/**
+ * Dashboard dark mode — overrides :root tokens when html has class "dark".
+ * Same Masar palette (#0f172a / #fafaf9 / #7c3aed); only invert surfaces + lift muted text.
+ */
+
+html.dark,
+.dark {
+  --dash-bg: #0f172a;
+  --dash-fg: #f8fafc;
+  --dash-fg-strong: rgba(248, 250, 252, 0.95);
+  --dash-fg-muted: rgba(248, 250, 252, 0.84);
+  --dash-fg-subtle: rgba(248, 250, 252, 0.78);
+  --dash-fg-label: rgba(248, 250, 252, 0.72);
+  --dash-neutral-bg: rgba(248, 250, 252, 0.08);
+  --dash-neutral-bg-strong: rgba(248, 250, 252, 0.12);
+  --dash-btn-primary-bg: linear-gradient(180deg, #0f172a 0%, #0b1224 100%);
+  --dash-btn-primary-fg: #ffffff;
+  --dash-overlay: rgba(2, 6, 23, 0.72);
+  --dash-surface: rgba(30, 41, 59, 0.94);
+  --dash-surface-soft: rgba(30, 41, 59, 0.9);
+  --dash-surface-muted: rgba(30, 41, 59, 0.82);
+  --dash-surface-solid: #1e293b;
+  --dash-sidebar-bg: rgba(15, 23, 42, 0.96);
+  --dash-border: rgba(248, 250, 252, 0.1);
+  --dash-border-soft: rgba(248, 250, 252, 0.08);
+  --dash-shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.22);
+  --dash-shadow-md: 0 16px 40px rgba(0, 0, 0, 0.28);
+  --dash-shadow-sidebar: 4px 0 32px rgba(0, 0, 0, 0.28);
+  --dash-purple: #a78bfa;
+  --dash-purple-soft: rgba(124, 58, 237, 0.2);
+  --dash-purple-hover: rgba(124, 58, 237, 0.12);
+  --dash-grid-line: rgba(124, 58, 237, 0.1);
+}
+
+html.dash-theme-animate .dash-layout,
+html.dash-theme-animate .dash-sidebar,
+html.dash-theme-animate .dash-card,
+html.dash-theme-animate .dash-panel-card,
+html.dash-theme-animate .dash-profile-accordion,
+html.dash-theme-animate .dash-bottom-nav,
+html.dash-theme-animate .dash-topic-card,
+html.dash-theme-animate .dash-confirm-dialog {
+  transition:
+    background-color 0.28s ease,
+    border-color 0.28s ease,
+    color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+html.dark body,
+.dark body {
+  background: var(--dash-bg);
+  color: var(--dash-fg);
+}
+
+/* Components that still use fixed light-only tints */
+html.dark,
+.dark .dash-topic-card-priority {
+  background: linear-gradient(
+    135deg,
+    rgba(234, 88, 12, 0.14) 0%,
+    var(--dash-surface-muted) 100%
+  );
+}
+
+html.dark,
+.dark .dash-topic-card-active {
+  background: rgba(124, 58, 237, 0.12);
+}
+
+html.dark,
+.dark .dash-continue-card {
+  border-color: rgba(124, 58, 237, 0.35);
+  background: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.2) 0%,
+    rgba(15, 23, 42, 0.5) 100%
+  );
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.3);
+}
+
+html.dark,
+.dark .dash-career-goal-banner {
+  border-color: rgba(124, 58, 237, 0.28);
+  background: rgba(124, 58, 237, 0.1);
+}
+
+html.dark,
+.dark .dash-career-goal-value {
+  color: var(--dash-purple);
+}
+
+html.dark,
+.dark .dash-mastery-not_started {
+  background: rgba(248, 250, 252, 0.08);
+  color: var(--dash-fg-subtle);
+}
+
+html.dark,
+.dark .dash-mastery-learning {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+}
+
+html.dark,
+.dark .dash-mastery-familiar {
+  background: rgba(124, 58, 237, 0.2);
+  color: var(--dash-purple);
+}
+
+html.dark,
+.dark .dash-mastery-confident,
+html.dark,
+.dark .dash-mastery-mastered {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+}
+
+html.dark,
+.dark .dash-tag-beginner {
+  background: rgba(34, 197, 94, 0.18);
+  color: #4ade80;
+}
+
+html.dark,
+.dark .dash-tag-intermediate {
+  background: rgba(124, 58, 237, 0.18);
+  color: var(--dash-purple);
+}
+
+html.dark,
+.dark .dash-tag-advanced {
+  background: rgba(239, 68, 68, 0.18);
+  color: #f87171;
+}
+
+html.dark,
+.dark .dash-priority-badge {
+  background: rgba(234, 88, 12, 0.2);
+  color: #fb923c;
+}
+
+html.dark,
+.dark .dash-goal-topic-badge {
+  background: rgba(124, 58, 237, 0.18);
+  color: var(--dash-purple);
+}
+
+html.dark,
+.dark .dash-badge {
+  border-color: rgba(124, 58, 237, 0.3);
+  background: rgba(124, 58, 237, 0.12);
+  color: var(--dash-purple);
+}
+
+html.dark,
+.dark .dash-goal-progress-percent {
+  color: var(--dash-purple);
+}
+
+html.dark,
+.dark .dash-priority-percent {
+  color: #fb923c;
+}
+
+html.dark,
+.dark .dash-readiness-ring-value,
+html.dark,
+.dark .dash-readiness-level {
+  color: #34d399;
+}
+
+html.dark,
+.dark .dash-readiness-row-head strong {
+  color: #6ee7b7;
+}
+
+html.dark,
+.dark .dash-profile-mastery-value {
+  color: #60a5fa;
+}
+
+html.dark,
+.dark .dash-icon-goal,
+html.dark,
+.dark .dash-icon-recommended,
+html.dark,
+.dark .dash-progress-ring-text {
+  color: var(--dash-purple);
+}
+
+html.dark,
+.dark .dash-icon-priority {
+  color: #fb923c;
+}
+
+html.dark,
+.dark .dash-icon-readiness {
+  color: #34d399;
+}
+
+html.dark,
+.dark .dash-icon-achievement {
+  color: #fbbf24;
+}
+
+html.dark,
+.dark .dash-icon-stats {
+  color: #60a5fa;
+}
+
+html.dark,
+.dark .dash-recommended-reasons {
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+html.dark,
+.dark .dash-notice {
+  border-color: rgba(124, 58, 237, 0.28);
+  background: rgba(124, 58, 237, 0.1);
+  color: var(--dash-fg-muted);
+}
+
+html.dark,
+.dark .dash-notice-error {
+  border-color: rgba(248, 113, 113, 0.35);
+  background: rgba(127, 29, 29, 0.4);
+  color: #fecaca;
+}
+
+html.dark,
+.dark .dash-notice-warning {
+  border-color: rgba(251, 146, 60, 0.35);
+  background: rgba(124, 45, 18, 0.4);
+  color: #fed7aa;
+}
+
+html.dark,
+.dark .dash-settings-error {
+  color: #f87171;
+}
+
+html.dark,
+.dark .dash-settings-success {
+  color: #4ade80;
+}
+
+html.dark,
+.dark .dash-confirm-overlay {
+  background: rgba(15, 23, 42, 0.75);
+}
+
+html.dark,
+.dark .dash-confirm-cancel {
+  background: var(--dash-surface-soft);
+  color: var(--dash-fg-muted);
+}
+
+html.dark,
+.dark .dash-confirm-cancel:hover:not(:disabled) {
+  background: rgba(248, 250, 252, 0.06);
+}
+
+html.dark,
+.dark .dash-sidebar-backdrop {
+  background: rgba(15, 23, 42, 0.7);
+}
+
+html.dark,
+.dark .dash-mobile-toggle {
+  border-color: var(--dash-border);
+  background: var(--dash-surface-soft);
+  color: var(--dash-fg);
+}
+
+html.dark,
+.dark .dash-year-btn,
+html.dark,
+.dark .dash-career-goal-option,
+html.dark,
+.dark .dash-mastery-option {
+  background: var(--dash-surface-muted);
+  color: var(--dash-fg-muted);
+}
+
+html.dark,
+.dark .dash-period-btn-completed:not(.dash-year-btn-active) {
+  border-color: rgba(52, 211, 153, 0.3);
+  background: rgba(16, 185, 129, 0.12);
+}
+
+html.dark,
+.dark .dash-period-completed-badge {
+  color: #6ee7b7;
+  background: rgba(16, 185, 129, 0.2);
+}
+
+html.dark,
+.dark .dash-year-btn-active,
+html.dark,
+.dark .dash-career-goal-option-active,
+html.dark,
+.dark .dash-mastery-option-active {
+  background: var(--dash-purple-soft);
+  color: var(--dash-purple);
+  border-color: rgba(167, 139, 250, 0.45);
+}
+
+html.dark,
+.dark .dash-mastery-option-mastered.dash-mastery-option-active {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border-color: rgba(52, 211, 153, 0.4);
+}
+
+html.dark,
+.dark .search-select-list {
+  background: var(--dash-surface-solid);
+  border-color: var(--dash-border);
+}
+
+html.dark,
+.dark .search-select-option {
+  color: var(--dash-fg-muted);
+}
+
+html.dark,
+.dark .search-select-option:hover,
+html.dark,
+.dark .search-select-option-active {
+  background: var(--dash-purple-soft);
+  color: var(--dash-purple);
+}
+
+html.dark,
+.dark .search-select-option-locked,
+html.dark,
+.dark .search-select-option-locked:hover,
+html.dark,
+.dark .search-select-option-locked.search-select-option-active {
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.32);
+}
+
+html.dark,
+.dark .search-select-option-badge {
+  border-color: rgba(167, 139, 250, 0.22);
+  background: rgba(124, 58, 237, 0.12);
+  color: #c4b5fd;
+}
+
+html.dark,
+.dark .search-select-option-locked .search-select-option-badge {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.38);
+}
+
+html.dark,
+.dark .onboarding-input {
+  background: var(--dash-surface-muted);
+  border-color: var(--dash-border);
+  color: var(--dash-fg);
+}
+
+html.dark,
+.dark .onboarding-input::placeholder {
+  color: var(--dash-fg-label);
+}
+
+html.dark,
+.dark .dash-profile-accordion-open {
+  border-color: rgba(167, 139, 250, 0.35);
+}
+
+html.dark,
+.dark .dash-profile-accordion-trigger:hover {
+  background: var(--dash-purple-hover);
+}
+
+/* Unlocked — same gold/cream palette as light mode (opaque so it reads on dark bg) */
+html.dark,
+.dark .dash-profile-achievement-earned {
+  border-color: rgba(217, 119, 6, 0.2);
+  background: rgb(255, 251, 235);
+  opacity: 1;
+}
+
+html.dark,
+.dark .dash-profile-achievement-earned .dash-profile-achievement-title {
+  color: #0f172a;
+}
+
+html.dark,
+.dark .dash-profile-achievement-earned .dash-profile-achievement-desc {
+  color: rgba(15, 23, 42, 0.55);
+}
+
+html.dark,
+.dark .dash-profile-achievement-earned .dash-profile-achievement-status {
+  color: #d97706;
+}
+
+html.dark,
+.dark .dash-preference-divider {
+  background: var(--dash-border-soft);
+}
+
+html.dark,
+.dark .dash-theme-switch-on .dash-theme-switch-track {
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+}
+
+html.dark,
+.dark .dash-view-toggle {
+  background: rgba(248, 250, 252, 0.06);
+}
+
+html.dark,
+.dark .dash-mark-all-toggle {
+  background: linear-gradient(
+    180deg,
+    var(--dash-surface-solid) 0%,
+    var(--dash-surface-soft) 100%
+  );
+  border-color: var(--dash-border);
+  color: var(--dash-fg);
+}
+
+.dark .dash-mark-all-toggle:hover {
+  border-color: rgba(167, 139, 250, 0.5);
+  color: #c4b5fd;
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.2);
+}
+
+.dark .dash-mark-all-toggle-reset:hover {
+  border-color: rgba(248, 113, 113, 0.45);
+  color: #fca5a5;
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.15);
+}
+
+.dark .dash-view-toggle-btn-active {
+  background: var(--dash-surface-solid);
+  color: var(--dash-purple);
+}
+
+html.dark,
+.dark .dash-mastered-item:hover {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(52, 211, 153, 0.35);
+}
+
+html.dark,
+.dark .dash-celebration-overlay {
+  background: rgba(2, 6, 23, 0.78);
+}
+
+html.dark,
+.dark .dash-semester-overlay {
+  background: rgba(2, 6, 23, 0.82);
+}
+
+html.dark,
+.dark .dash-celebration-card {
+  background: #1e293b;
+  color: #f8fafc;
+  border-color: rgba(248, 250, 252, 0.12);
+}
+
+html.dark,
+.dark .dash-celebration-card h2 {
+  color: #f8fafc;
+}
+
+html.dark,
+.dark .dash-celebration-card p {
+  color: rgba(248, 250, 252, 0.78);
+}
+
+html.dark,
+.dark .dash-semester-close {
+  background: rgba(248, 250, 252, 0.08);
+  color: rgba(248, 250, 252, 0.65);
+}
+
+html.dark,
+.dark .dash-semester-close:hover:not(:disabled) {
+  background: rgba(248, 250, 252, 0.12);
+  color: #f8fafc;
+}
+
+html.dark,
+.dark .dash-semester-stats {
+  color: rgba(248, 250, 252, 0.84);
+}
+
+html.dark,
+.dark .dash-semester-stats li span {
+  color: rgba(248, 250, 252, 0.65);
+}
+
+html.dark,
+.dark .dash-semester-stats li strong,
+html.dark,
+.dark .dash-semester-next strong {
+  color: #f8fafc;
+}
+
+html.dark,
+.dark .dash-semester-next {
+  color: rgba(248, 250, 252, 0.78);
+}
+
+html.dark,
+.dark .dash-roadmap-complete-hint,
+html.dark,
+.dark .dash-milestone-card {
+  border-color: rgba(52, 211, 153, 0.35);
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.14) 0%,
+    var(--dash-surface-solid) 60%
+  );
+}
+
+.dark .dash-milestone-eyebrow {
+  color: #34d399;
+}
+
+.dark .dash-semester-advance-banner {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(52, 211, 153, 0.25);
+}
+
+html.dark,
+.dark .dash-semester-advance-banner p {
+  color: var(--dash-fg-muted);
+}
+
+html.dark,
+.dark .dash-roadmap-complete-hint {
+  color: var(--dash-fg-muted);
+}
+
+/* Navy / grey / black text & surfaces that still used fixed light-theme values */
+html.dark,
+.dark .dash-layout :is(
+  .dash-topic-focus-hint,
+  .dash-topic-focus-label,
+  .dash-topic-focus-sublabel,
+  .dash-topic-focus-text,
+  .dash-topic-focus-list,
+  .dash-topic-focus-meta,
+  .dash-notes-status,
+  .dash-notes-empty,
+  .dash-notes-view,
+  .dash-notes-action,
+  .dash-topic-detail-label,
+  .dash-topic-detail-text,
+  .dash-topic-detail-list,
+  .dash-career-goal-label,
+  .dash-career-goal-option-desc,
+  .dash-recommended-reasons-label,
+  .dash-recommended-reasons ul,
+  .dash-achievement-desc,
+  .dash-weekly-name,
+  .dash-weekly-mastery,
+  .dash-weekly-progress,
+  .dash-deps-node,
+  .dash-deps-node-future,
+  .dash-deps-arrow,
+  .dash-skill-node-meta,
+  .dash-forecast-text,
+  .dash-milestone-hint,
+  .dash-settings-warning,
+  .dash-mastered-edit-hint
+) {
+  color: var(--dash-fg-muted);
+}
+
+html.dark,
+.dark .dash-layout :is(
+  .dash-topic-focus-title,
+  .dash-topic-focus-heading,
+  .dash-notes-header .dash-topic-focus-heading,
+  .dash-achievement-title,
+  .dash-skill-group-title,
+  .dash-recommended-title,
+  .dash-goal-progress-name
+) {
+  color: var(--dash-fg);
+}
+
+html.dark,
+.dark .dash-layout :is(
+  .dash-topic-focus-priority,
+  .dash-mastery-option,
+  .dash-notes-item,
+  .dash-notes-input,
+  .dash-notes-textarea,
+  .dash-mastered-item,
+  .dash-deps-node,
+  .dash-skill-node,
+  .dash-achievement-item:not(.dash-achievement-earned),
+  .dash-profile-achievement:not(.dash-profile-achievement-earned),
+  .dash-weekly-item
+) {
+  border-color: var(--dash-border);
+  background: var(--dash-surface-muted);
+}
+
+html.dark,
+.dark .dash-topic-focus-priority-active {
+  background: rgba(234, 88, 12, 0.15);
+  border-color: rgba(251, 146, 60, 0.4);
+  color: #fb923c;
+}
+
+html.dark,
+.dark .dash-topic-focus-priority:hover {
+  color: #fb923c;
+}
+
+html.dark,
+.dark .dash-notes-action-save {
+  color: #34d399;
+}
+
+html.dark,
+.dark .dash-notes-action-danger:hover {
+  color: #f87171;
+}
+
+html.dark,
+.dark .onboarding-input,
+html.dark,
+.dark .onboarding-input:focus {
+  background: var(--dash-surface-muted);
+  border-color: var(--dash-border);
+  color: var(--dash-fg);
+}
+
+html.dark,
+.dark .onboarding-input::placeholder {
+  color: var(--dash-fg-label);
+}
+
+html.dark,
+.dark .onboarding-field-error {
+  color: #f87171;
+}
+
+html.dark,
+.dark .dash-star-empty {
+  color: rgba(248, 250, 252, 0.2);
+}
+
+html.dark,
+.dark .dash-profile-achievement-progress {
+  color: var(--dash-fg-label);
+}
+
+html.dark,
+.dark .dash-settings-toggle-label {
+  color: var(--dash-fg-muted);
+}
+
+html.dark,
+.dark .dash-btn-primary:hover:not(:disabled) {
+  box-shadow: 0 14px 32px rgba(2, 6, 23, 0.45);
+}
+
+/* Profile → Overall mastery grid (level-colored cells) */
+html.dark,
+.dark .dash-profile-mastery-cell.dash-mastery-not_started {
+  background: rgba(248, 250, 252, 0.08);
+}
+
+html.dark,
+.dark .dash-profile-mastery-cell.dash-mastery-not_started .dash-profile-mastery-count,
+html.dark,
+.dark .dash-profile-mastery-cell.dash-mastery-not_started .dash-profile-mastery-name {
+  color: var(--dash-fg-subtle);
+}
+
+html.dark,
+.dark .dash-profile-mastery-cell.dash-mastery-learning {
+  background: rgba(59, 130, 246, 0.2);
+}
+
+html.dark,
+.dark .dash-profile-mastery-cell.dash-mastery-learning .dash-profile-mastery-count,
+html.dark,
+.dark .dash-profile-mastery-cell.dash-mastery-learning .dash-profile-mastery-name {
+  color: #60a5fa;
+}
+
+html.dark,
+.dark .dash-profile-mastery-cell.dash-mastery-familiar {
+  background: rgba(124, 58, 237, 0.2);
+}
+
+html.dark,
+.dark .dash-profile-mastery-cell.dash-mastery-familiar .dash-profile-mastery-count,
+html.dark,
+.dark .dash-profile-mastery-cell.dash-mastery-familiar .dash-profile-mastery-name {
+  color: #a78bfa;
+}
+
+html.dark,
+.dark .dash-profile-mastery-cell.dash-mastery-confident {
+  background: rgba(16, 185, 129, 0.2);
+}
+
+html.dark,
+.dark .dash-profile-mastery-cell.dash-mastery-confident .dash-profile-mastery-count,
+html.dark,
+.dark .dash-profile-mastery-cell.dash-mastery-confident .dash-profile-mastery-name {
+  color: #34d399;
+}
+
+html.dark,
+.dark .dash-profile-mastery-cell.dash-mastery-mastered {
+  background: rgba(16, 185, 129, 0.28);
+}
+
+html.dark,
+.dark .dash-profile-mastery-cell.dash-mastery-mastered .dash-profile-mastery-count,
+html.dark,
+.dark .dash-profile-mastery-cell.dash-mastery-mastered .dash-profile-mastery-name {
+  color: #6ee7b7;
+}
