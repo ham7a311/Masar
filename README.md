@@ -53,8 +53,7 @@ It aims to reduce confusion caused by scattered information and provide a clear,
 - Firebase Authentication
 - Firestore Database
 - Firebase Hosting
-- Tailwind CSS (if used)
-- Cloud Functions (optional future expansion)
+- Tailwind CSS
 
 ---
 
